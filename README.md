@@ -1,89 +1,148 @@
-# Employee Transport Management System (ETMSystem)
+Employee Transport Management System (ETMSystem)
+Developed by Katleho Molefe
 
-A small .NET 10 console/CLI application for managing employee transport data (clients, travels, contracts, drivers, users).
-The project uses a layered architecture(Data → Repository → Service → Controller → View) 
-and relies on Entity Framework Core for data access and Spectre.Console for console UI components.
+A .NET 10 console application designed to manage employee transport operations, including clients, travel records, contracts, drivers, and user accounts.
 
-## Key features
-- Manage clients, client travels, contracts and users
-- Simple login/registration flow
-- EF Core model-first DbContext for `ETMSystemDB`
-- Dependency Injection using `Microsoft.Extensions.DependencyInjection`
+The application follows a layered architecture and uses Entity Framework Core for database access and Spectre.Console for an enhanced command-line user experience.
 
-## Tech stack
-- .NET 10 (net10.0)
-- C#
-- Entity Framework Core 10 (SqlServer provider)
-- Spectre.Console (console UI)
-- BCrypt.Net-Next (password hashing)
+Features
+✅ User Registration and Authentication
 
-## Project layout (important folders)
-- `Data` — EF Core `ETMSystemContext` (DbSets + SQL Server connection)
-- `Models` — domain entities (`Client`, `User`, `Contract`, `Travel`, etc.)
-- `Repository` — repository implementations / interfaces
-- `Service` — business logic services
-- `Controller` — controllers used by the console views (e.g., `ClientController`)
-- `View` — console view components (Spectre.Console-based)
+✅ Client Management (Create, Read, Update, Delete)
 
-## Prerequisites
-- .NET 10 SDK installed (dotnet)
-- SQL Server / LocalDB available (project currently uses LocalDB by default)
-- Visual Studio 2022/2026 or VS Code / CLI
+✅ Travel Management
 
-## Configuration / Database
-By default the DbContext uses LocalDB with this connection string (see `Data/ETMSystemContext.cs`):
-Server=(localdb)\MSSQLLocalDB;Database=ETMSystemDB; Trusted_Connection=True; TrustServerCertificate=True;
+✅ Contract Management
 
-- Option A (quick): Ensure LocalDB is available and let the app create/use `ETMSystemDB`.
-- Option B (recommended): Move the connection string out of source code and into configuration/environment variables. Update `Data/ETMSystemContext.cs` or refactor to use `IConfiguration` in `Program.cs`.
+✅ Driver Management
 
+✅ Password Security using BCrypt
 
+✅ SQL Server Database Integration
 
-(Adjust commands to your environment and ensure the connection string points to a reachable SQL Server instance.)
+✅ Dependency Injection
 
-## Build & Run
+✅ Repository Pattern Implementation
 
-Using Visual Studio:
-1. Open the solution `ETMSystem.slnx` in Visual Studio.
-2. Build the solution (__Build Solution__).
-3. Run the app (__Start Debugging__ / press __F5__ or __Ctrl+F5__).
+✅ Layered Architecture
 
-Using the CLI:
-1. From the project root:
-   - __dotnet restore__
-   - __dotnet build__
-   - __dotnet run__
+Architecture
+The system follows a layered architecture:
 
-## Common entry points
-- `Program.cs` registers services and DI, resolves `ClientController`, then displays login and main views.
-- `ClientController` orchestrates client CRUD via service interfaces (`ICreateClientService`, `IReadClientService`, etc.).
-- `Data/ETMSystemContext.cs` contains EF model configuration and the current connection string.
+View
+ ↓
+Controller
+ ↓
+Service
+ ↓
+Repository
+ ↓
+Entity Framework Core
+ ↓
+SQL Server
+Project Structure
+ETMSystem
+│
+├── Data
+├── Models
+├── Repository
+├── Service
+├── Controller
+├── View
+└── Program.cs
+Technology Stack
+C#
+.NET 10
+Entity Framework Core 10
+SQL Server
+Spectre.Console
+BCrypt.Net-Next
+Microsoft Dependency Injection
+Project Structure
+Data
+Contains the Entity Framework Core DbContext configuration and database access layer.
 
-## Dependencies (from `ETMSystem.csproj`)
-- `Microsoft.EntityFrameworkCore` (10.0.x)
-- `Microsoft.EntityFrameworkCore.SqlServer`
-- `Microsoft.EntityFrameworkCore.Tools`
-- `Spectre.Console`
-- `BCrypt.Net-Next`
+Models
+Contains the application's domain entities:
 
-## Notes / TODOs
-- Move the hardcoded connection string out of `ETMSystemContext` into configuration.
-- Add automated tests (no tests found in the repository).
-- Consider adding migration scripts or CI steps to provision the database.
-- Improve error handling and input validation in views/services.
+Client
+User
+Driver
+Contract
+Travel
+Repository
+Implements the Repository Pattern and data access operations.
 
-## Contributing
-- Fork the repository, create a feature branch, add tests, and open a PR.
-- Keep changes focused and add/update README or documentation as needed.
-Developer
-Katleho Molefe
+Service
+Contains the business logic layer.
 
-Final-Year BCom Information Systems and Technology Student
+Controller
+Handles communication between services and views.
 
-University of KwaZulu-Natal
+View
+Console-based user interface built using Spectre.Console.
 
-LinkedIn: www.linkedin.com/in/katleho-molefe
+Prerequisites
+Before running the application, ensure the following are installed:
 
-GitHub: https://github.com/Skatle-art
+.NET 10 SDK
+SQL Server or SQL Server LocalDB
+Visual Studio 2022 or later
+Configuration
+Configure your connection string through application configuration rather than hardcoding values.
 
+Example:
+
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "YOUR_CONNECTION_STRING"
+  }
+}
+Running the Application
+Visual Studio
+Open ETMSystem.slnx
+Build the solution
+Press F5 to run
+Command Line
+dotnet restore
+dotnet build
+dotnet run
+Main Entry Points
+Component	Purpose
+Program.cs	Configures Dependency Injection and application startup
+ClientController	Coordinates client operations
+ETMSystemContext	Database configuration and EF Core mappings
+NuGet Packages
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+Spectre.Console
+BCrypt.Net-Next
+Future Improvements
+Move connection strings to configuration files
+Add unit tests
+Add integration tests
+Implement logging
+Add database migration scripts
+Improve exception handling
+Enhance validation
+Screenshots
+Add screenshots of:
+
+Login Screen
+Main Menu
+Client Management
+Travel Management
+Contract Management
+Contributing
+Contributions are welcome.
+
+Fork the repository
+Create a feature branch
+Commit changes
+Submit a pull request
+License
+This project is licensed under the MIT License.
+
+See the LICENSE file for details.
 
