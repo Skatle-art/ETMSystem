@@ -37,11 +37,7 @@ Server=(localdb)\MSSQLLocalDB;Database=ETMSystemDB; Trusted_Connection=True; Tru
 - Option A (quick): Ensure LocalDB is available and let the app create/use `ETMSystemDB`.
 - Option B (recommended): Move the connection string out of source code and into configuration/environment variables. Update `Data/ETMSystemContext.cs` or refactor to use `IConfiguration` in `Program.cs`.
 
-If you want to use EF migrations:
-1. Install the EF tools: __dotnet tool install --global dotnet-ef__ (if not installed)
-2. Add a migrations project or run from the project folder:
-   - __dotnet ef migrations add InitialCreate__
-   - __dotnet ef database update__
+
 
 (Adjust commands to your environment and ensure the connection string points to a reachable SQL Server instance.)
 
@@ -79,12 +75,15 @@ Using the CLI:
 ## Contributing
 - Fork the repository, create a feature branch, add tests, and open a PR.
 - Keep changes focused and add/update README or documentation as needed.
+Developer
+Katleho Molefe
 
-## License
-Specify a license (e.g., MIT) in `LICENSE` if you intend to make this public.
+Final-Year BCom Information Systems and Technology Student
 
----
+University of KwaZulu-Natal
 
-If you want, I can:
-- Generate a polished `README.md` file with screenshots or usage examples.
-- Extract and list all public commands/views and sample CLI walkthrough.
+LinkedIn: www.linkedin.com/in/katleho-molefe
+
+GitHub: https://github.com/Skatle-art
+
+
