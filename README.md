@@ -182,8 +182,9 @@ Final-Year BCom Information Systems and Technology Student
 University of KwaZulu-Natal
 
 - GitHub: https://github.com/Skatle-art
-- LinkedIn: Add your LinkedIn profile link here
+- LinkedIn: www.linkedin.com/in/katleho-molefe
 
----
+
+
 
 
